@@ -15,7 +15,7 @@ public class Q01_lv2_교점에별만들기 {
 	
 	private Point intersection(long a1, long b1, long c1, long a2, long b2, long c2) {
 		double x = (double) (b1*c2 - c1*b2) / (a1*b2 - a2*b1);
-		double y = (double) (c1*a2 - a1*c2) / (a1*b2 - b2*b1);
+		double y = (double) (c1*a2 - a1*c2) / (a1*b2 - a2*b1);
 		
 		if(x%1 !=0 || y%1 !=0) return null; // x,y 둘 중 하나라도 정수 아니면 null 반환
 		
@@ -49,7 +49,7 @@ public class Q01_lv2_교점에별만들기 {
 		List<Point> points = new ArrayList<>();
 		
 		for(int i=0;i<line.length;i++) {
-			for(int j=0;j<line.length;j++) {
+			for(int j=i+1;j<line.length;j++) {
 				Point intersection = intersection(line[i][0], line[i][1], line[i][2], line[j][0], line[j][1], line[j][2]);
 				if(intersection != null)
 					points.add(intersection); // 정수 좌표만 저장
