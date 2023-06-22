@@ -49,6 +49,11 @@ public class Q03_lv2_거리두기확인하기 {
         	char[][] room = new char[place.length][];
         	for(int j=0;j<room.length;j++)
         		room[j] = place[j].toCharArray();
+        	
+        	if(isDistanced(room))
+        		answer[i] = 1;
+        	else
+        		answer[i] = 0;
         }
         return answer;
     }
