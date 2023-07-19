@@ -25,7 +25,8 @@ public class Q51_lv3_디스크컨트롤러 {
 		Arrays.sort(jobs, Comparator.comparing(job -> job.start)); // 작업 시작 시간으로 배열 정렬
 		
 		// 모든 작업 순회
-		// asList(배열) : 배열->리스트 변환 LinkedList(Collection) : 주어진 컬렉션 포함하는 LinkedList 생성
+		// asList(배열) : 배열->리스트 변환 
+		// LinkedList(Collection) : 주어진 컬렉션 포함하는 LinkedList 생성
 		Queue<Job> q = new LinkedList<>(Arrays.asList(jobs)); 
 		// 시작할 수 있는 작업 중 가장 수행 시간 짧은 작업 선택
 		PriorityQueue<Job> pq = new PriorityQueue<>(Comparator.comparingInt(job -> job.duration));
