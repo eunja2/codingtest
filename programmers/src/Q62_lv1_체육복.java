@@ -14,27 +14,31 @@ public class Q62_lv1_체육복 {
 		Set<Integer> owns = Arrays.stream(lost)
 				.boxed()
 				.collect(Collectors.toSet());
-		owns.retainAll(Arrays.stream(reserve).boxed().collect(Collectors.toSet()));
+		owns.retainAll(Arrays.stream(reserve)
+				.boxed().collect(Collectors.toSet()));
 		
+		// 체육복 빌려야 하는 lost 배열 -> 앞쪽 원소부터 차례대로 확인하므로 큐에 담기
 		Queue<Integer> q = new LinkedList<>();
 		for(int l : lost) q.add(l);
 		
+		// reserve 순회하며 큐에 담긴 학생 중 몇 명에게 빌려줄 수 있나 count
 		int get = 0;
 		for(int r : reserve) {
-			if(owns.contains(r)) continue;
+			if(owns.contains(r)) continue; // 체육복 가지고 있는 학생이 체육복 읽어버렸으면 pass
 			
+			// 체육복 빌려야 하는 학생 번호가 너무 작거나, 체육복 빌려야 하는 학생이 여벌 옷 가지고 있다면 pass
 			while(!q.isEmpty() && (q.peek() < r - 1 || owns.contains(q.peek()))) {
 				q.poll();
 			}
 			
 			if(q.isEmpty()) break;
 			
-			if(q.peek() <= r + 1) {
+			if(q.peek() <= r + 1) { // 체육복 빌려줄 수 있는 번호일 때
 				q.poll();
 				get++;
 			}
 		}
 		
-		return n- lost.length + owns.size() + get;
+		return n - lost.length + owns.size() + get;
     }
 }

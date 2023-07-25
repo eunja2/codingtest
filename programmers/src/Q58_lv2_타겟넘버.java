@@ -27,7 +27,6 @@ public class Q58_lv2_타겟넘버 {
 				continue;
 			}
 			
-			// + 선택
 			s.push(new State(state.index+1, state.acc + numbers[state.index])); 
 			s.push(new State(state.index+1, state.acc - numbers[state.index])); 
 		}
