@@ -1,5 +1,3 @@
-
-
 public class Q03_lv2_거리두기확인하기2 {
 	private static final int[] dx = {0, -1, 1, 0};
 	private static final int[] dy = {-1, 0, 0, 1}; // 상, 좌, 우, 하(반대 방향을 더해 idx 3으로 만들기 위한 순서)
